@@ -1,6 +1,6 @@
 import React from "react";
 
-const AboutLayout = ({ children }) => {
+const AboutLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <h1>Hello from about Layout</h1>
