@@ -1,4 +1,4 @@
-import { Link, Outlet, ScrollRestoration } from "react-router-dom"
+import { Link, Outlet, ScrollRestoration } from "react-router-dom";
 
 export function RootLayout() {
   return (
@@ -22,5 +22,5 @@ export function RootLayout() {
         <Outlet />
       </div>
     </>
-  )
+  );
 }
