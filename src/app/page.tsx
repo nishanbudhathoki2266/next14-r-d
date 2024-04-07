@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 const getTodos = async () => {
   // throw new Error("FUCKING WRONG");
   await wait(3000);
@@ -12,13 +14,18 @@ const wait = (duration: number) => {
   });
 };
 
-export default async function Home() {
+const TodoList = async () => {
   const todos = await getTodos();
+  return <p>{todos.length}</p>;
+};
 
+export default function Home() {
   return (
     <>
       <h1>Todos</h1>
-      <p>{todos.length}</p>
+      <Suspense fallback={"Loading..."}>
+        <TodoList />
+      </Suspense>
     </>
   );
 }
