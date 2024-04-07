@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Suspense } from "react";
 
 const getTodos = async () => {
@@ -16,7 +17,20 @@ const wait = (duration: number) => {
 
 const TodoList = async () => {
   const todos = await getTodos();
-  return <p>{todos.length}</p>;
+  return (
+    <ul>
+      {todos.map((todo) => (
+        <li key={todo.id}>
+          <Link
+            href={`todos/${todo.id}`}
+            className="text-blue-400 hover:underline"
+          >
+            {todo.title}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default function Home() {
