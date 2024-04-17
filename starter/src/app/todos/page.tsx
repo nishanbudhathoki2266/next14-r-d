@@ -1,10 +1,19 @@
 import Link from "next/link";
 import React from "react";
 
-const TodosPage = async () => {
-  const todos = await fetch("https://jsonplaceholder.typicode.com/todos").then(
-    (res) => res.json()
+const wait = (duration: number) => {
+  return new Promise((resolve) => setTimeout(resolve, duration));
+};
+
+const getTodos = async () => {
+  await wait(5000);
+  return await fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
+    res.json()
   );
+};
+
+const TodosPage = async () => {
+  const todos = await getTodos();
 
   return (
     <div className="mt-2 p-4">
